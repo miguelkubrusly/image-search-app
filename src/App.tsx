@@ -3,7 +3,7 @@ import SearchBar from "./components/SearchBar";
 
 function App(): JSX.Element {
   const handleSubmit = (searchTerm: any) => {
-    alert("Do a search with " + searchTerm);
+    searchImages(searchTerm);
   };
 
   return (
