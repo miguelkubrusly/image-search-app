@@ -1,5 +1,11 @@
-function ImageShow(){
-  return <div>ImageShow</div>
+import { ImgData } from "./ImageList";
+
+interface ImgShowProps {
+  thisImage: ImgData;
 }
 
-export default ImageShow
+export function ImageShow({ thisImage }: ImgShowProps) {
+  return <div>{thisImage.alt_description}</div>;
+}
+
+export default ImageShow;
