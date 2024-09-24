@@ -11,7 +11,6 @@ function App() {
     const results: ImgData[] = await searchImages(searchTerm);
     setImages(results);
   };
-
   return (
     <div>
       <SearchBar onSubmit={handleSubmit} />
@@ -19,5 +18,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

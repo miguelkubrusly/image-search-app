@@ -1,7 +1,11 @@
-import { AxiosResponse } from "axios";
-import React, { ReactNode } from "react";
+// import { AxiosResponse } from "axios";
+// import React, { ReactNode } from "react";
+
+import ImageShow from "./ImageShow";
 
 export interface ImgData {
+  id: string;
+  alt_description: string;
   urls: {
     full: string;
     raw: string;
@@ -18,15 +22,15 @@ interface ImgProps {
 }
 
 function ImageList({ images }: ImgProps) {
-  const renderedImages = images.map((image: ImgData) => {
-    return <img></img>;
+  const renderedImages = images.map((image: ImgData, index: number) => {
+    return (
+      <div key={index}>
+        <ImageShow thisImage={image} />
+      </div>
+    );
   });
 
-  return (
-    <div>
-      <p>{renderedImages}</p>
-    </div>
-  );
+  return <div>{renderedImages}</div>;
 }
 
 export default ImageList;
