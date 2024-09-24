@@ -1,17 +1,23 @@
-import { PropertyName } from "typescript";
-import searchImages from "../api";
+import { useState } from "react";
+import { FormEvent } from "react";
 
-function SearchBar({onSubmit}:any):JSX.Element { 
-  
-  const handleClick = (): void => {
-    onSubmit("cars")
+function SearchBar({ onSubmit }: any) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleFormSubmit = (event: FormEvent): void => {
+    event.preventDefault();
+
+    onSubmit("cars");
+  };
+
+  const handleChange = (event: any) => {
+    setSearchTerm(event.target.value);
   };
 
   return (
     <div>
-      <form>
-        <input />
-        <button onClick={handleClick}>Search</button>
+      <form onSubmit={handleFormSubmit}>
+        <input value={searchTerm} onChange={handleChange} />
       </form>
     </div>
   );
