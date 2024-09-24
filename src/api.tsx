@@ -1,5 +1,5 @@
-import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-
+import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse } from "axios";
+import { ImgData } from "./components/ImageList";
 // export interface ImgData {
 //   description: string;
 //   alt_description: string;
@@ -12,9 +12,8 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 //     thumb: string;
 //   };
 
-
-async function searchImages(searchTerm: string){
-  const config = {
+async function searchImages(searchTerm: string) {
+  const config: AxiosRequestConfig = {
     headers: {
       Authorization: "Client-ID TIEvqvwCT6uxmLHm7d_yzz-2LOQyblhvs3IrBkXBKAI",
     },
@@ -22,7 +21,7 @@ async function searchImages(searchTerm: string){
       query: searchTerm,
     },
   };
-  const response = await axios.get(
+  const response: AxiosResponse<{ results: ImgData[] }> = await axios.get(
     "https://api.unsplash.com/search/photos",
     config
   );

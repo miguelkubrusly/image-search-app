@@ -1,16 +1,20 @@
-import { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 import { FormEvent } from "react";
 
-function SearchBar({ onSubmit }: any) {
+interface SearchBarProps {
+  onSubmit: (searchTerm: string) => void;
+}
+
+function SearchBar({ onSubmit }: SearchBarProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleFormSubmit = (event: FormEvent): void => {
+  const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     onSubmit(searchTerm);
   };
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
