@@ -5,7 +5,11 @@ interface ImgShowProps {
 }
 
 export function ImageShow({ thisImage }: ImgShowProps) {
-  return <div>{thisImage.alt_description}</div>;
+  return (
+    <div>
+      <img src={thisImage.urls.small} alt={thisImage.alt_description} />
+    </div>
+  );
 }
 
 export default ImageShow;

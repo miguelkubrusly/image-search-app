@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState } from "react";
 import searchImages from "./api";
 import ImageList, { ImgData } from "./components/ImageList";
@@ -11,7 +12,7 @@ function App() {
     setImages(results);
   };
   return (
-    <div>
+    <div id="app">
       <SearchBar onSubmit={handleSubmit} />
       <ImageList images={images} />
     </div>

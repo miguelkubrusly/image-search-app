@@ -1,0 +1,21 @@
+.search-bar {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: rgb(42, 42, 42);
+}
+
+.search-bar form {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar label {
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: orangered;
+  font-size: large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}

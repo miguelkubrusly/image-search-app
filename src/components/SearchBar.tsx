@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from "react";
+import "./SearchBar.css";
+import { ChangeEvent, useState } from "react";
 import { FormEvent } from "react";
 
 interface SearchBarProps {
@@ -12,6 +13,7 @@ function SearchBar({ onSubmit }: SearchBarProps) {
     event.preventDefault();
 
     onSubmit(searchTerm);
+    setSearchTerm("");
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -19,8 +21,9 @@ function SearchBar({ onSubmit }: SearchBarProps) {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <form onSubmit={handleFormSubmit}>
+        <label>Enter Search Term and press Enter</label>
         <input value={searchTerm} onChange={handleChange} />
       </form>
     </div>

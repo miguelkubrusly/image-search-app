@@ -1,6 +1,6 @@
 // import { AxiosResponse } from "axios";
 // import React, { ReactNode } from "react";
-
+import "./ImageList.css";
 import ImageShow from "./ImageShow";
 
 export interface ImgData {
@@ -14,7 +14,6 @@ export interface ImgData {
     small_s3: string;
     thumb: string;
   };
-  [key: string]: any;
 }
 
 interface ImgProps {
@@ -22,15 +21,11 @@ interface ImgProps {
 }
 
 function ImageList({ images }: ImgProps) {
-  const renderedImages = images.map((image: ImgData, index: number) => {
-    return (
-      <div key={index}>
-        <ImageShow thisImage={image} />
-      </div>
-    );
+  const renderedImages = images.map((image: ImgData) => {
+    return <ImageShow key={image.id} thisImage={image} />;
   });
 
-  return <div>{renderedImages}</div>;
+  return <div className="image-list">{renderedImages}</div>;
 }
 
 export default ImageList;
